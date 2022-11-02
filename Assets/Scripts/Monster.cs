@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-
-using Unity.Mathematics;
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -68,13 +63,22 @@ public class Monster : MonoBehaviour
 
     private string GetAttackString(Monster target, float damage, float multiplier)
     {
-        string text = $"{this.title} wendet {this.attackName} attackName.";
+        string text = $"{this.title} wendet {this.attackName}.";
 
         text += $"{target.title} erleidet {damage:F1} Schaden.";
         
         // TODO add additional description based on the damage multiplier.
         // " Es war sehr effektive!" for a multiplier above 1.01f.
         // " es war nicht sehr effektive!" for a multiplier below 0.99f.
+        if (target.HasFainted())
+        {
+            text += $"{target.title} Es war sehr effektive.";
+        }
+        
+        if (target.HasFainted())
+        {
+            text += $"{target.title} Es war nicht sehr effektive";
+        }
         
         if (target.HasFainted())
         {
@@ -97,7 +101,7 @@ public class Monster : MonoBehaviour
                     case Element.Stone:
                         return IneffectiveDamageMultiplier;
                     case Element.Plant:
-                        return NormalDamageMultiplier;
+                        return EffectiveDamageMultiplier;
                     default:
                         return NormalDamageMultiplier;
                 }
@@ -107,10 +111,11 @@ public class Monster : MonoBehaviour
                     case Element.Normal:
                     case Element.Fire:
                     case Element.Water:
+                        return IneffectiveDamageMultiplier;
                     case Element.Stone:
                         return IneffectiveDamageMultiplier;
                     case Element.Plant:
-                        return NormalDamageMultiplier;
+                        return EffectiveDamageMultiplier;
                     default:
                         return NormalDamageMultiplier;
                 }
@@ -119,11 +124,12 @@ public class Monster : MonoBehaviour
                 {
                     case Element.Normal:
                     case Element.Fire:
+                        return EffectiveDamageMultiplier;
                     case Element.Water:
                     case Element.Stone:
-                        return IneffectiveDamageMultiplier;
+                        return EffectiveDamageMultiplier;
                     case Element.Plant:
-                        return NormalDamageMultiplier;
+                        return IneffectiveDamageMultiplier;
                     default:
                         return NormalDamageMultiplier;
                 }
@@ -131,12 +137,13 @@ public class Monster : MonoBehaviour
                 switch (defenderElement)
                 {
                     case Element.Normal:
+                        return EffectiveDamageMultiplier;
                     case Element.Fire:
+                        return EffectiveDamageMultiplier;
                     case Element.Water:
-                    case Element.Stone:
                         return IneffectiveDamageMultiplier;
+                    case Element.Stone:
                     case Element.Plant:
-                        return NormalDamageMultiplier;
                     default:
                         return NormalDamageMultiplier;
                 }
@@ -144,17 +151,18 @@ public class Monster : MonoBehaviour
                 switch (defenderElement)
                 {
                     case Element.Normal:
-                    case Element.Fire:
-                    case Element.Water:
-                    case Element.Stone:
                         return IneffectiveDamageMultiplier;
+                    case Element.Fire:
+                        return IneffectiveDamageMultiplier;
+                    case Element.Water:
+                        return EffectiveDamageMultiplier;
+                    case Element.Stone:
                     case Element.Plant:
-                        return NormalDamageMultiplier;
                     default:
                         return NormalDamageMultiplier;
                 }
         }
-        // TODO Calculate a damage multipier based on the interacting elements.
+        // TODO Calculate a damage multiplier based on the interacting elements.
         return 1;
     }
     public string GetTitle()

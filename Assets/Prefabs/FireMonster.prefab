@@ -121,17 +121,17 @@ PrefabInstance:
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
       propertyPath: title
-      value: Glumande
+      value: Salamander
       objectReference: {fileID: 0}
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
       propertyPath: attackName
-      value: Feuerpeitsche
+      value: Feuerhagel
       objectReference: {fileID: 0}
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
       propertyPath: attackStrength
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5334484404986094802, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}

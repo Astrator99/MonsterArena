@@ -90,8 +90,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
+      propertyPath: maxHealth
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
+        type: 3}
       propertyPath: attackName
-      value: "Steuererkl\xE4rung"
+      value: Kampfschrei
       objectReference: {fileID: 0}
     - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
@@ -99,6 +104,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1204277590398335401, guid: d055ba59c7d1eae47b37ce26bc7c8f85,
         type: 3}
+    - target: {fileID: 5331923541499254937, guid: b4d7d739dc59e234a960b06cd94f5db2,
+        type: 3}
+      propertyPath: attackStrength
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5334484404986094802, guid: b4d7d739dc59e234a960b06cd94f5db2,
         type: 3}
       propertyPath: title
